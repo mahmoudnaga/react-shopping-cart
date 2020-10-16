@@ -30,9 +30,19 @@ body,
 .button.primary {
   background: #f0c040;
 }
-a{
+
+.right {
+  text-align: right;
+}
+
+a {
   text-decoration: none;
 }
+
+ul li {
+  list-style: none;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas: "header""main""footer";
@@ -93,7 +103,6 @@ footer {
   align-items: center;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 .products li {
@@ -129,14 +138,62 @@ footer {
 .product-price div {
   font-size: 2rem;
 }
+
 /* Filter */
-.filter{
+.filter {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   margin: 1rem;
   border-bottom: 0.1rem solid #c0c0c0;
 }
-.filter div{
+
+.filter div {
+  flex: 1;
+}
+
+/* Cart */
+.cart {
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+}
+
+.cart-header {
+  border-bottom: 0.1rem solid #c0c0c0;
+}
+
+.cart-items {
+  padding: 0;
+  width: 100%;
+}
+
+.cart-items img {
+  width: 5rem;
+}
+
+.cart-items li {
+  display: flex;
+}
+
+.cart-items li div {
+  padding: 0.5rem;
+}
+
+.cart-items li div:last-child {
+  flex: 1;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.total>div{
+  font-size: 2rem;
+}
+.total>div,
+.total>button {
   flex: 1;
 }
