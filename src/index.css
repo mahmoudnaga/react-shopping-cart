@@ -190,10 +190,33 @@ footer {
   align-items: center;
   width: 100%;
 }
-.total>div{
+
+.total>div {
   font-size: 2rem;
 }
+
 .total>div,
 .total>button {
   flex: 1;
+}
+
+/* Checkout Form */
+form {
+  width: 100%;
+}
+
+.form-container {
+  width: 100%;
+  padding: 0;
+}
+
+.form-container li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+input {
+  padding: 1rem;
+  border: 0.1rem solid #c0c0c0;
 }
