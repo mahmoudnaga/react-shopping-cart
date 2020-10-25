@@ -22,24 +22,24 @@ export const filterProducts = (products, size) => (dispatch) => {
 };
 
 export const sortProducts = (filteredProducts, sort) => (dispatch) => {
-    const sortedProducts = filteredProducts.slice().sort((a, b) =>
-        sort === "lowest"
-            ? a.price > b.price
-                ? 1
-                : -1
-            : sort === "highest"
-                ? a.price < b.price
+    const sortedProducts = filteredProducts.slice().sort((a, b) => {
+        if (sort === "") {
+            return a._id > b._id ? 1 : -1;
+        } else {
+            return sort === "lowest"
+                ? a.price > b.price
                     ? 1
                     : -1
-                : a._id < b._id
+                : a.price < b.price
                     ? 1
-                    : -1
-    );
+                    : -1;
+        }
+    });
     dispatch({
         type: ORDER_PRODUCTS_BY_PRICE,
         payload: {
             sort,
             items: sortedProducts
-        } 
+        }
     });
 }; 
