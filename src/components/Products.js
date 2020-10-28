@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { fetchProducts } from '../actions/productActions';
+import { addToCart } from '../actions/cartActions';
 
 class Products extends Component {
     state = {
@@ -48,7 +49,7 @@ class Products extends Component {
                 </Fade>
                 {
                     product &&
-                    <Modal isOpen={true} onRequestClose={true}>
+                    <Modal isOpen={true}  ariaHideApp={false}>
                         <Zoom>
                             <button className="close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">
@@ -59,7 +60,7 @@ class Products extends Component {
                                     <p>
                                         Available Sizes: {" "}
                                         {product.availableSizes.map(size =>
-                                            <span>{" "}<button className="button">{size}</button></span>
+                                            <span key={product.availableSizes.indexOf(size)}>{" "}<button className="button">{size}</button></span>
                                         )}
                                     </p>
                                     <div className="product-price">
@@ -78,4 +79,9 @@ class Products extends Component {
         );
     }
 }
-export default connect((state) => ({ products: state.products.filteredItems }), { fetchProducts })(Products);
+export default connect(state => ({
+    products: state.products.filteredItems
+}), {
+    fetchProducts,
+    addToCart
+})(Products);
